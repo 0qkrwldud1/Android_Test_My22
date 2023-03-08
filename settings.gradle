@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "Android_Test_My22"
+include ':app'
+include ':mytest1'
+include ':mytest1:test3'
+include ':mytest1:test3_2'
+include ':mytest1:test6_6'
+include ':test6_6'
+include ':app:test6_2'
+include ':app:test7_2'
