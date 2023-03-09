@@ -8,6 +8,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.K1109_Android_kot_Class_Ex">
         <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
