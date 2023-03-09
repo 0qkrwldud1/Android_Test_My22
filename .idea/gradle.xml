@@ -7,8 +7,7 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$USER_HOME$/Documents/gradle-7.4.2" />
-        <option name="gradleJvm" value="Embedded JDK" />
+        <option name="gradleJvm" value="Android Studio default JDK" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -19,6 +18,7 @@
             <option value="$PROJECT_DIR$/mytest1/test3" />
             <option value="$PROJECT_DIR$/mytest1/test3_2" />
             <option value="$PROJECT_DIR$/mytest1/test6_6" />
+            <option value="$PROJECT_DIR$/test10" />
             <option value="$PROJECT_DIR$/test6_6" />
             <option value="$PROJECT_DIR$/test7_3" />
             <option value="$PROJECT_DIR$/test8_2" />
