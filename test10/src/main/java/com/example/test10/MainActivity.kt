@@ -1,5 +1,6 @@
 package com.example.test10
 
+import android.app.Notification
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         val requestPermissionLauncher = registerForActivityResult(
             ActivityResultContracts.RequestPermission()
         ) { isGranted ->
@@ -24,12 +27,12 @@ class MainActivity : AppCompatActivity() {
                 Log.d("kkang", "callback, denied..")
             }
         }
-
-        val status= ContextCompat.checkSelfPermission(this, "android.permission.ACCESS_FINE_LOCATION")
+//        val status= ContextCompat.checkSelfPermission(this, "android.permission.ACCESS_FINE_LOCATION")
+        val status= ContextCompat.checkSelfPermission(this, "android.permission.READ_PHONE_STATE")
         if(status == PackageManager.PERMISSION_GRANTED){
-            Log.d("kkang", "granted..")
+            Log.d("kkang", "granted..폰")
         }else {
-            requestPermissionLauncher.launch("android.permission.ACCESS_FINE_LOCATION")
+            requestPermissionLauncher.launch("android.permission.READ_PHONE_STATE")
         }
     }
 }

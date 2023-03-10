@@ -6,12 +6,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.example.test10.databinding.ActivityMain278Binding
+import com.example.test10.databinding.ActivityMainBinding
 
 class MainActivity278 : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.R)
     fun showToast() {
-        val toast = Toast.makeText(this, "종료하려면 한 번 더 누르세요.", Toast.LENGTH_SHORT)
+        val toast = Toast.makeText(this, "종료하려면 한 번 더 누르세요.", Toast.LENGTH_LONG)
         toast.addCallback(
             object : Toast.Callback() {
                 override fun onToastHidden() {
@@ -30,7 +32,18 @@ class MainActivity278 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main278)
+        val binding = ActivityMain278Binding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        showToast()
+//        showToast()
+        binding.button.setOnClickListener{
+            showToast()
+        }
+
+        binding.button1.setOnClickListener{
+            val toast = Toast.makeText(this, "종료하려면 한 번 더 누르세요.", Toast.LENGTH_LONG)
+            toast.show()
+        }
+
     }
 }

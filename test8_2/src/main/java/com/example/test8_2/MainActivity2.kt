@@ -11,12 +11,13 @@ import com.example.test8_2.databinding.ActivityMain2Binding
 
 class MainActivity2 : AppCompatActivity(), CompoundButton.OnCheckedChangeListener {
 
-    class MyEventHandler : CompoundButton.OnCheckedChangeListener {
+    open class MyEventHandler : CompoundButton.OnCheckedChangeListener {
         override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
             Log.d("lsy", "체크박스 클릭")
         }
     }
 
+    // 2번째방법에서 재정의
     override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
         Log.d("lsy", "체크박스 클릭")
     }
@@ -40,8 +41,7 @@ class MainActivity2 : AppCompatActivity(), CompoundButton.OnCheckedChangeListene
             }
         }
 
-        binding.checkbox.setOnCheckedChangeListener {
-                CompoundButton, isChecked ->
+        binding.img1.setOnClickListener {
             if(state == 0) {
                 binding.img1.visibility = View.INVISIBLE
                 state = 1
@@ -52,7 +52,6 @@ class MainActivity2 : AppCompatActivity(), CompoundButton.OnCheckedChangeListene
         }
 
         binding.button2.setOnLongClickListener {
-
             if(state == 0) {
                 binding.img1.visibility = View.INVISIBLE
                 state = 1
@@ -65,6 +64,14 @@ class MainActivity2 : AppCompatActivity(), CompoundButton.OnCheckedChangeListene
 
 
     }
+    //2 번째방법
+//        binding.checkbox.setOnCheckedChangeListener(this)
+
+//        val test = MyEventHandler()
+//        test.onCheckedChanged(binding.checkbox, true)
+
+
+    // 1 번째 방법
 //        binding.checkbox.setOnCheckedChangeListener(MyEventHandler())
 
     }
