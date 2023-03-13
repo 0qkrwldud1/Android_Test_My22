@@ -49,7 +49,7 @@ class MainActivity306 : AppCompatActivity() {
         builder.setContentText("Content Massage")
 
         binder.button1.setOnClickListener {
-            val bigPicture = BitmapFactory.decodeResource(resources, R.drawable.test)
+            val bigPicture = BitmapFactory.decodeResource(resources, R.drawable.ddddddd)
             val bigStyle = NotificationCompat.BigPictureStyle()
             bigStyle.bigPicture(bigPicture)
             builder.setStyle(bigStyle)

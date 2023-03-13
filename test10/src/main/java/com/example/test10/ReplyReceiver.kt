@@ -39,7 +39,7 @@ class ReplyReceiver : BroadcastReceiver() {
         builder.setSmallIcon(android.R.drawable.ic_notification_overlay)
         builder.setWhen(System.currentTimeMillis())
         builder.setContentTitle("Content Title")
-        builder.setContentText("Content Massage")
+        builder.setContentText("replyTxt")
 
         manager.notify(11, builder.build())
     }
