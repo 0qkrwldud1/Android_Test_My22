@@ -8,6 +8,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import com.example.test11.databinding.ActivityMain357Binding
 
 class MainActivity357 : AppCompatActivity() {
+
+    // toggle 변수
     lateinit var toggle: ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
