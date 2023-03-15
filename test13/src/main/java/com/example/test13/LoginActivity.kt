@@ -33,7 +33,6 @@ class LoginActivity : AppCompatActivity() {
 
         binding.id.hint="$data1"
         binding.pw.hint = "$data2"
-        Log.d("kkang","$data1, $data2")
 
     }
 
@@ -45,6 +44,5 @@ class LoginActivity : AppCompatActivity() {
 
         outState.putString("id", binding.id.text.toString())
         outState.putString("pw", binding.pw.text.toString())
-
     }
 }
