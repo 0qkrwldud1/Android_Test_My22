@@ -7,7 +7,29 @@
     android:orientation="vertical"
     android:gravity="center">
 
+    <EditText
+        android:id="@+id/editext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="bundle 저장 테스트"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
 
+    <TextView
+        android:id="@+id/countsaveView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="35dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/countrestore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="35dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/countResultView"
@@ -22,7 +44,5 @@
         android:layout_height="wrap_content"
         android:textSize="25dp"
         android:text="Count"/>
-
-
 
 </LinearLayout>

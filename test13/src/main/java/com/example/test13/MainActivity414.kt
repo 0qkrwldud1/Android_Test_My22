@@ -15,7 +15,7 @@ class MainActivity414 : AppCompatActivity() {
 
         binding.button1.setOnClickListener {
             val intent = Intent()
-            intent.action = "ACTION_EDIT"
+            intent.action = Intent.ACTION_VIEW
             intent.data = Uri.parse("http://www.google.com")
             startActivity(intent)
         }
