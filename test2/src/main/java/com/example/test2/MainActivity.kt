@@ -1,4 +1,4 @@
-package com.example.ch12_material
+package com.example.test2
 
 import android.os.Bundle
 import android.view.Menu
@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.ch12_material.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import com.example.test2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,11 +30,10 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         //add......................................
         setSupportActionBar(binding.toolbar)
         toggle = ActionBarDrawerToggle(this, binding.drawer, R.string.drawer_opened,
-                R.string.drawer_closed)
+            R.string.drawer_closed)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toggle.syncState()
 
@@ -58,3 +57,5 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 }
+
+
