@@ -30,7 +30,7 @@ class JoinActivity : AppCompatActivity() {
         val email = binding.email.text
         val pw = binding.pw.text
 
-        binding.join.setOnClickListener {
+        binding.joinbtn.setOnClickListener {
             val intent: Intent = Intent(this, MainActivity::class.java)
             intent.putExtra("email", "$email")
             intent.putExtra("pw", "$pw")
@@ -72,32 +72,17 @@ class JoinActivity : AppCompatActivity() {
                 file
             )
 
-            // 공유 프 -> 파일 값 저장
-            // imgLoadTest 파일의 이름으로 저장
+            // 공유 프레퍼런스 파일에 값을 저장 하는 부분.
+            // imgLoadTest 파일의 이름으로 저장.
+            //
             val pref = getSharedPreferences("imgLoadTest", Context.MODE_PRIVATE)
-            // 키, 값 형태로 저장
-            // commit -> 실제 저장소파일에 저장
+            // 키, 값 형태로 저장하는 방식.
+            // commit 하게 되면, 실제 저장소 파일에 저장.
             pref.edit().run {
-                putString("imgUri", "test")
+                putString("imgfileUri", photoURI.toString())
+                putString("imgfile", filePath)
                 commit()
             }
-
-            val resultStr2: String? = pref.getString("imgUri", "default")
-            val result3 = resultStr2.toString()
-            Log.d("kk", "imgInfo result3 결과 : $resultStr2")
-            Log.d("kk", "imgInfo result3 결과 : $result3")
-
-            // 카메라 앱 사진 촬영
-            // 앱별 저장소에 저장
-            // 결과 이미지뷰애 붙이기
-            // 사진의 저장소 위치의 절대 경로를 공유 프레퍼런스 파일에 저장
-            // 공유 프레퍼런스에 저장된 사진파일의 절대경로를 불러오기
-            // 절대경로의 uri값 가져오기
-            // uri값 비트맵 변환작업
-            // 이미지뷰에 붙여넣기
-
-            val uritest = Uri.fromFile(File(filePath))
-            Log.d("kkang", "uritest: " + uritest.toString())
 
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)

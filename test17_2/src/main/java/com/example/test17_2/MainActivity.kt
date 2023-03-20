@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         val email = intent.getStringExtra("email")
         val pw = intent.getStringExtra("pw")
-        binding.mainEmail.text = "$email"
-        binding.mainPw.text = "$pw"
+        binding.resultEmail.text = "$email"
+        binding.resultPw.text = "$pw"
 
         val pref = getSharedPreferences("imgLoadTest", Context.MODE_PRIVATE)
         val imgfileUri: String? = pref.getString("imgfileUri", "값이 없으면 디폴트값이 옵니다.")
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 //                    val option = BitmapFactory.Options()
 //                    option.inSampleSize = 10
                 val bitmap = BitmapFactory.decodeStream(stream, null, option)
-                binding.mainImageView.setImageBitmap(bitmap)
+                binding.resultImageView.setImageBitmap(bitmap)
             }
         }
 

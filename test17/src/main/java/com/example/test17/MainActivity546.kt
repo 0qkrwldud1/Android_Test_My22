@@ -65,32 +65,25 @@ class MainActivity546 : AppCompatActivity() {
                 file
             )
 
-            // 공유 프 -> 파일 값 저장
-            // imgLoadTest 파일의 이름으로 저장
+            // 공유 프레퍼런스 파일에 값을 저장 하는 부분.
+            // imgLoadTest 파일의 이름으로 저장.
+            //
             val pref = getSharedPreferences("imgLoadTest", Context.MODE_PRIVATE)
-            // 키, 값 형태로 저장
-            // commit -> 실제 저장소파일에 저장
+            // 키, 값 형태로 저장하는 방식.
+            // commit 하게 되면, 실제 저장소 파일에 저장.
             pref.edit().run {
-                putString("imgUri", "test")
+                putString("imgfileUri", photoURI.toString())
+                putString("imgfile", filePath)
                 commit()
             }
 
-            val resultStr2: String? = pref.getString("imgUri", "default")
+            val resultStr2 : String? = pref.getString("imgUri","값이 없으면 디폴트값이 옵니다.")
             val result3 = resultStr2.toString()
-            Log.d("kk", "imgInfo result3 결과 : $resultStr2")
-            Log.d("kk", "imgInfo result3 결과 : $result3")
+            Log.d("kk","imgInfo result3 결과 : $resultStr2")
+            Log.d("kk","imgInfo result3 결과 : $result3")
 
-            // 카메라 앱 사진 촬영
-            // 앱별 저장소에 저장
-            // 결과 이미지뷰애 붙이기
-            // 사진의 저장소 위치의 절대 경로를 공유 프레퍼런스 파일에 저장
-            // 공유 프레퍼런스에 저장된 사진파일의 절대경로를 불러오기
-            // 절대경로의 uri값 가져오기
-            // uri값 비트맵 변환작업
-            // 이미지뷰에 붙여넣기
-
-            val uritest = Uri.fromFile(File(filePath))
-            Log.d("kkang", "uritest: " + uritest.toString())
+            val uriTest = Uri.fromFile(File(filePath))
+            Log.d("kk"," filePath 경로 찍어보기"+uriTest.toString())
 
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
@@ -146,29 +139,30 @@ class MainActivity546 : AppCompatActivity() {
                 Log.d("kkang", "$it")
             }
         }
+
         binding.button2.setOnClickListener {
             //공용저장소...........
-            val projection = arrayOf(
-                MediaStore.Images.Media._ID,
-                MediaStore.Images.Media.DISPLAY_NAME
-            )
-            val cursor = contentResolver.query(
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                projection,
-                null,
-                null,
-                null
-            )
-            cursor?.let {
-                while (cursor.moveToNext()) {
-                    Log.d("kkang", "_id : ${cursor.getLong(0)}, name : ${cursor.getString(1)}")
-                    val contentUri: Uri = ContentUris.withAppendedId(
-                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                        cursor.getLong(0)
-                    )
-
-                    val uritest = Uri.fromFile(File(filePath))
-                    Log.d("kkang", "uritest: " + uritest.toString())
+//            val projection = arrayOf(
+//                MediaStore.Images.Media._ID,
+//                MediaStore.Images.Media.DISPLAY_NAME
+//            )
+//            val cursor = contentResolver.query(
+//                MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+//                projection,
+//                null,
+//                null,
+//                null
+//            )
+//            cursor?.let {
+//                while (cursor.moveToNext()) {
+//                    Log.d("kkang", "_id : ${cursor.getLong(0)}, name : ${cursor.getString(1)}")
+//                    val contentUri: Uri = ContentUris.withAppendedId(
+//                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+//                        cursor.getLong(0)
+//                    )
+//
+//                    val uritest = Uri.fromFile(File(filePath))
+//                    Log.d("kkang", "uritest: " + uritest.toString())
 //                    val resolver = applicationContext.contentResolver
 //                    resolver.openInputStream(contentUri).use { stream ->
 //                        // stream 객체에서 작업 수행
@@ -177,14 +171,24 @@ class MainActivity546 : AppCompatActivity() {
 //                        val bitmap = BitmapFactory.decodeStream(stream, null, option)
 //                        binding.resultImageView.setImageBitmap(bitmap)
 //                    }
-                }
-            }
+//                }
+//            }
+
+            //작업중.
+            // 1 카메라 앱 사진 촬영 -> 2찍은 사진 파일 앱별 저장소 파일로 저장
+            // 3 결과 이미지 뷰에 붙이기 -> 4 사진의 저장소 위치의 절대 경로를 공유 프레퍼런스 파일에 저장.
+            // 5 공유 프레퍼런스에 저장된 사진 파일의 절대 경로를 불러오기.
+            // 6 불러온 절대 경로의 uri 값을 가져오기.
+            // 7 불러온 uri 값으로 bitmap 변환작업을 해서, 해당 결과 이미지 뷰에 붙여넣기
+
 
             // 공유 프레퍼런스에 저장된 값을 불러오기
             val pref = getSharedPreferences("imgLoadTest", Context.MODE_PRIVATE)
             val imgfileUri: String? = pref.getString("imgfileUri", "값이 없으면 디폴트값이 옵니다.")
-            val imgfile: String? = pref.getString("imgfile", "값이 없으면 디폴트값이 옵니다.")
+            //val imgfile: String? = pref.getString("imgfile", "값이 없으면 디폴트값이 옵니다.")
+
             val resolver = applicationContext.contentResolver
+
             if (imgfileUri != null) {
                 resolver.openInputStream(imgfileUri.toUri()).use { stream ->
                     // stream 객체에서 작업 수행

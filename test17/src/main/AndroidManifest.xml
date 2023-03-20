@@ -13,6 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestLab"
         android:requestLegacyExternalStorage="true">
+        <provider android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.test17.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
         <activity
             android:name=".MainActivity546"
             android:exported="true">
@@ -31,13 +38,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <provider android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.test17.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
-        </provider>
     </application>
 
 </manifest>
