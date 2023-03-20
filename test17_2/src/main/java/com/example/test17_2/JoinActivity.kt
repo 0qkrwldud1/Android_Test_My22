@@ -68,7 +68,7 @@ class JoinActivity : AppCompatActivity() {
             filePath = file.absolutePath
             val photoURI: Uri = FileProvider.getUriForFile(
                 this,
-                "com.example.test17.fileprovider",
+                "com.example.test17_2.fileprovider",
                 file
             )
 
