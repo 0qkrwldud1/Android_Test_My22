@@ -9,6 +9,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 
 class MyApplication: MultiDexApplication() {
+    // static 같은효과
     companion object {
         lateinit var auth: FirebaseAuth
         var email: String? = null
