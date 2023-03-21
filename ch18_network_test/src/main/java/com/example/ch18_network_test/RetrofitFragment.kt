@@ -24,11 +24,21 @@ class RetrofitFragment : Fragment() {
     ): View? {
         val binding = FragmentRetrofitBinding.inflate(inflater, container, false)
 
+
+        // &returnType=json
+        // &numOfRows=5
+        // &pageNo=1
+        // &stationName=종로구
+        // &dataTerm=DAILY
+        // &ver=1.0
         val call: Call<PageListModel> = MyApplication.networkService.getList(
             MyApplication.API_KEY,
+            MyApplication.returnType,
+            5,
             1,
-            6,
-            MyApplication.resultType
+            MyApplication.stationName,
+            MyApplication.dataTerm,
+            1.0
         )
 
         call?.enqueue(object: Callback<PageListModel>{
@@ -44,6 +54,7 @@ class RetrofitFragment : Fragment() {
                 Log.d("kkang", "error.......")
             }
         })
+
 
         return binding.root
     }

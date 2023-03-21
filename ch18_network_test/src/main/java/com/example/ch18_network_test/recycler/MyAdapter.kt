@@ -25,14 +25,14 @@ class MyAdapter(val context: Context, val datas: MutableList<ItemModel>?): Recyc
 
         //add......................................
         val model = datas!![position]
-        binding.itemTitle.text = model.TITLE
-        binding.itemTime.text = model.CNTCT_TEL
-        binding.itemDesc1.text = model.GUGUN_NM
-        binding.itemDesc2.text = model.HOMEPAGE_URL
-        binding.itemDesc3.text = model.ITEMCNTNTS
-        Glide.with(context)
-            .load(model.MAIN_IMG_THUMB)
-            .into(binding.itemImage)
+        binding.itemTitle.text = model.coGrade
+        binding.itemTime.text = model.dataTime
+        binding.itemDesc1.text = model.coValue
+        binding.itemDesc2.text = model.khaiValue
+        binding.itemDesc3.text = model.so2Value
+//        Glide.with(context)
+//            .load(model.urlToImage)
+//            .into(binding.itemImage)
 
     }
 }

@@ -7,11 +7,21 @@ import retrofit2.http.Query
 
 interface NetworkService {
 
-    @GET("/6260000/FestivalService/getFestivalKr")
+    // &returnType=json
+    // &numOfRows=5
+    // &pageNo=1
+    // &stationName=종로구
+    // &dataTerm=DAILY
+    // &ver=1.0
+
+    @GET("/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty")
     fun getList(
         @Query("serviceKey") serviceKey: String?,
-        @Query("pageNo") pageNo: Int,
+        @Query("returnType") returnType: String?,
         @Query("numOfRows") numOfRows: Int,
-        @Query("resultType") resultType: String?
+        @Query("pageNo") pageNo: Int,
+        @Query("stationName") stationName: String?,
+        @Query("dataTerm") dataTerm: String?,
+        @Query("ver") ver: Double
     ): Call<PageListModel>
 }

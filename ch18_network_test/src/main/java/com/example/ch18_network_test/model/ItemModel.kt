@@ -1,10 +1,10 @@
 package com.example.ch18_network_test.model
 
 class ItemModel {
-    var TITLE: String? = null
-    var HOMEPAGE_URL: String? = null
-    var CNTCT_TEL: String? = null
-    var ITEMCNTNTS: String? = null
-    var GUGUN_NM: String? = null
-    var MAIN_IMG_THUMB: String? = null
+    var khaiValue: String? = null
+    var so2Value: String? = null
+    var coValue: String? = null
+    var dataTime: String? = null
+    var coGrade: String? = null
+    var urlToImage: String? = null
 }
